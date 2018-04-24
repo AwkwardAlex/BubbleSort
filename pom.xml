@@ -41,7 +41,7 @@
                     <configuration>
                         <archive>
                             <manifest>
-                                <mainClass>MainTest</mainClass>
+                                <mainClass>Main</mainClass>
                             </manifest>
                         </archive>
                         <descriptorRefs>
