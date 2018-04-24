@@ -2,7 +2,7 @@ public class Sort implements Runnable {
 
     private int[] array;
     private int threadNumber;
-    private static final int ZERO = 0;
+    private static final int STARTING_POINT = 0;
 
     private Sort(int[] array, int threadNumber) {
         this.array = array;
@@ -29,7 +29,7 @@ public class Sort implements Runnable {
     public void run() {
         int split = array.length / 2;
         if (threadNumber == 1) {
-            bubbleSort(array, ZERO, split);
+            bubbleSort(array, STARTING_POINT, split);
         } else {
             bubbleSort(array, split, array.length);
         }
@@ -40,7 +40,7 @@ public class Sort implements Runnable {
         int[] arrayCopy = new int[array.length];
         System.arraycopy(array, 0, arrayCopy, 0, array.length);
         long start = System.nanoTime();
-        bubbleSort(array, ZERO, array.length);
+        bubbleSort(array, STARTING_POINT, array.length);
         long end = System.nanoTime();
         System.out.println("It took - " + (end - start) + " nanoseconds to sort an array with "
                 + array.length + " integers, with bubble sort.");
@@ -56,7 +56,7 @@ public class Sort implements Runnable {
         Thread thread2 = new Thread(new Sort(array, 2));
         thread1.start();
         thread2.start();
-        bubbleSort(array, ZERO, array.length);
+        bubbleSort(array, STARTING_POINT, array.length);
     }
 
     private static void fillArray(int[] array) {
