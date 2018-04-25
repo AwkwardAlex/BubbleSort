@@ -1,4 +1,4 @@
-public class Sort implements Runnable {
+public final class Sort implements Runnable {
 
     private int[] array;
     private int threadNumber;
